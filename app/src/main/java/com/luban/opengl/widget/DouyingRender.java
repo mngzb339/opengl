@@ -12,6 +12,8 @@ public class DouyingRender implements GLSurfaceView.Renderer ,SurfaceTexture.OnF
     private final DouyingView mView;
     private CameraHelper cameraHelper;
     private SurfaceTexture mSurfaceTexture;
+    //4*4的变换矩阵
+    private float[] mtx = new float[16];
 
     public DouyingRender(DouyingView douyingView) {
         mView = douyingView;
@@ -45,7 +47,10 @@ public class DouyingRender implements GLSurfaceView.Renderer ,SurfaceTexture.OnF
      GLES20.glClearColor(0,0,0,1);
      //真正执行上一个glClearColor配置的颜色
      GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
-
+     // 更新纹理 然后才能使用opengl 从surfaceTexure 获得数据进行渲染
+     mSurfaceTexture.updateTexImage();
+     //获得变换矩阵
+     mSurfaceTexture.getTransformMatrix(mtx);
     }
 
     /**
