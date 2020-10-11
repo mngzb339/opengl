@@ -21,7 +21,7 @@ public class DouyingView extends GLSurfaceView {
         //1.设置egl 版本
         setEGLContextClientVersion(2);
         //2.设置一个渲染器
-        setRenderer(new DouyingRender());
+        setRenderer(new DouyingRender(this));
         //3.设置渲染器模式 设置按需渲染（当调用requestRender 请求GLThread 回调drawFrams
         //连续渲染 自动处理
         setRenderMode(RENDERMODE_WHEN_DIRTY);
