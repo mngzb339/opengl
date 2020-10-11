@@ -66,7 +66,7 @@ public class CameraHelper implements Camera.PreviewCallback {
             mCamera.addCallbackBuffer(buffer);
             mCamera.setPreviewCallbackWithBuffer(this);
             //设置预览画面
-           // SurfaceTexture surfaceTexture = new SurfaceTexture(11);
+            // SurfaceTexture surfaceTexture = new SurfaceTexture(11);
             mCamera.setPreviewTexture(mSurfaceTexture);
             mCamera.startPreview();
         } catch (Exception ex) {
@@ -83,7 +83,9 @@ public class CameraHelper implements Camera.PreviewCallback {
     @Override
     public void onPreviewFrame(byte[] data, Camera camera) {
         // data数据依然是倒的
-        mPreviewCallback.onPreviewFrame(data, camera);
+        if(null != mPreviewCallback) {
+            mPreviewCallback.onPreviewFrame(data, camera);
+        }
         camera.addCallbackBuffer(buffer);
     }
 

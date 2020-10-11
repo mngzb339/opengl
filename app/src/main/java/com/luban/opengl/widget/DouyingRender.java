@@ -42,9 +42,10 @@ public class DouyingRender implements GLSurfaceView.Renderer ,SurfaceTexture.OnF
     @Override
     public void onDrawFrame(GL10 gl) {
      //配置屏幕 清理屏幕 告诉opengl 需要把屏幕清理为。。。颜色
-     GLES20.glClearColor(0,0,0,0);
+     GLES20.glClearColor(0,0,0,1);
      //真正执行上一个glClearColor配置的颜色
      GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
+
     }
 
     /**
