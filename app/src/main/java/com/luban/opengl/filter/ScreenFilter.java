@@ -89,21 +89,21 @@ public class ScreenFilter {
         mTextureBuffer = ByteBuffer.allocateDirect(4 * 2 * 4).order(ByteOrder.nativeOrder())
                 .asFloatBuffer();
         mTextureBuffer.clear();
-        float[] t = {0.0f, 1.0f,
-                1.0f, 1.0f,
-                0.0f, 0.0f,
-                1.0f, 0.0f};
+//        float[] t = {0.0f, 1.0f,
+//                1.0f, 1.0f,
+//                0.0f, 0.0f,
+//                1.0f, 0.0f};
         //旋转
 //        float[] t = {1.0f, 1.0f,
 //                1.0f, 0.0f,
 //                0.0f, 1.0f,
 //                0.0f, 0.0f};
         //镜像
-//        float[] t = {1.0f, 0.0f,
-//                1.0f, 1.0f,
-//                0.0f, 0.0f,
-//                0.0f, 1.0f
-//        };
+        float[] t = {1.0f, 0.0f,
+                1.0f, 1.0f,
+                0.0f, 0.0f,
+                0.0f, 1.0f
+        };
         mTextureBuffer.put(t);
     }
 
@@ -122,7 +122,7 @@ public class ScreenFilter {
         //1.设置窗口 画画的时候，画布是10*10的但是可以画5*5大小的
         // 画画的时候画布可以看出 10*10  也可以看成5*5 其他的也成
         //设置的画布大小 然后画画 画布越大 你画上去的图像会显得越小
-        GLES20.glViewport(0, 0, width, height);
+        GLES20.glViewport(0, 900, width, height/2);
         //使用着色器程序
         GLES20.glUseProgram(mProgram);
         Buffer position = mVertexBuffer.position(0);

@@ -9,5 +9,5 @@ void main(){
     //内置变量gl_Position,把顶点数据赋值给这个变量 opengl就知道它要画什么形状了
     gl_Position = vPosition;
     //只需要取其中的x y 两个数据就可以了
-    aCoord=(vCoord*vMatrix).xy;
+    aCoord=(vMatrix*vCoord).xy;
 }
